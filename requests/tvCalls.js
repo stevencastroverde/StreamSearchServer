@@ -1,5 +1,7 @@
+const dotenv = require('dotenv').config();
+
 const client = require('guidebox');
-const apiKey = 'rKcE8UjpWG7r8hIkG3Dus9HltJxmoYxp';
+const apiKey = process.env.API_KEY;
 const Guidebox = new client(apiKey, 'US');
 
 module.exports = {
