@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var request = require('request')
+const Guidebox = require('../requests/movieCalls.js');
 
 
 /* GET users listing. */
-router.get('/search', function(req, res, next) {
-    console.log('request got')
-    console.log(req.query);
-     request('https://api-public.guidebox.com/v1.43/US/rKcE8UjpWG7r8hIkG3Dus9HltJxmoYxp/search/movie/title/'+ req.query.title,function(error,response,body){
-     res.send(body)
- })
-
+router.get('/', function(req, res) {
+  Guidebox.getFreeMovies()
+    .then((response) => res.json(response));
+});
+router.get('/:id', function(req, res){
+  Guidebox.getSpecificMovie(req.params.id)
+    .then((response) => res.json(response));
 });
 
 module.exports = router;
