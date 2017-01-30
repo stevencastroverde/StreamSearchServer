@@ -29,6 +29,7 @@ app.use('/tv', tv);
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
+  res.render('index.html')
   next(err);
 });
 

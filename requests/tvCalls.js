@@ -7,6 +7,9 @@ module.exports = {
   getFreeTv: function(){
     return Guidebox.shows.list({sources: 'free', platform:'web'});
   },
+  searchShows: function(searchTerm){
+    return Guidebox.search.shows({field:'title', query:searchTerm});
+  },
   getSpecificShow: function(showId){
     return Guidebox.shows.retrieve(showId);
   },
