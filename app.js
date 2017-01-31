@@ -8,6 +8,7 @@ var cors = require('cors')
 
 var movies = require('./routes/movies');
 var tv = require('./routes/tv');
+var sources = require('./routes/sources');
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(cors());
 
 app.use('/movies', movies);
 app.use('/tv', tv);
+app.use('/sources', sources);
 
 
 // catch 404 and forward to error handler
