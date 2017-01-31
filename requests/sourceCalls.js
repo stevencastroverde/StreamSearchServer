@@ -4,10 +4,10 @@ const apiKey = process.env.API_KEY;
 const Guidebox = new client(apiKey, 'US');
 
 module.exports = {
-  getAllSources: function () {
-    return Guidebox.sources.list();
+  getWebSources: function () {
+    return Guidebox.sources.list({platforms: 'web'});
   },
-  
+
 
 
 };
