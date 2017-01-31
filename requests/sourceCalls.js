@@ -5,7 +5,7 @@ const Guidebox = new client(apiKey, 'US');
 
 module.exports = {
   getWebSources: function () {
-    return Guidebox.sources.list({platforms: 'web'});
+    return Guidebox.sources.list({type:'subscription'});
   },
 
 
