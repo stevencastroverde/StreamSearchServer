@@ -13,4 +13,10 @@ router.get('/:id', function(req, res){
     .then((response) => res.json(response));
 });
 
+router.get('/:movieTitle',function(req,res){
+	Guidebox.searchMovies(req.params.movieTitle)
+		.then(response => res.json(response));
+
+})
+
 module.exports = router;
