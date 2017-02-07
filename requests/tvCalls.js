@@ -5,7 +5,7 @@ const Guidebox = new client(apiKey, 'US');
 
 module.exports = {
   getFreeTv: function(){
-    return Guidebox.shows.list({sources: 'free', platform:'web'});
+    return Guidebox.shows.list({sources: 'free', platform:'web',include_links:true});
   },
   searchShows: function(searchTerm){
     return Guidebox.search.shows({field:'title', query:searchTerm});
