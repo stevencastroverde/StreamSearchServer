@@ -19,7 +19,7 @@ router.get('/free', function(req, res) {
                     if(error) {throw error};
                 })
             });
-        })
+        }
     })
 
 });
