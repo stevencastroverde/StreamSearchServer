@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 const dotenv = require('dotenv').config();
 const Guidebox = require('../requests/movieCalls.js');
-var redis = require('redis');
-var client = redis.createClient(process.env.REDIS_URL);
+var client = require('redis').createClient(process.env.REDIS_URL);
 
 
 /* GET users listing. */
