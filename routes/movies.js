@@ -15,12 +15,12 @@ router.get('/free', function(req, res) {
                 .then((response) => {
                 res.json(response);
                 client.set('/movies/free', JSON.stringify(freeMovies.data), function(error){
-                    if(error) {throw error};
+                    if(error) {
+                        throw error;
                 } else {
+                client.expire('/movies/free', 24*60*60);
+            }});
 
-            }
-
-                )
             });
         }
     })
