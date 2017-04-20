@@ -5,9 +5,9 @@ const Guidebox = require('../requests/tvCalls.js');
 
 
 /* GET home page. */
-router.get('/free', cache('24 hours'), function(req, res) {
+router.get('/free', function(req, res) {
     Guidebox.getFreeTv()
-                .then((response) => res.json(response);
+                .then((response) => res.json(response));
 
 });
 

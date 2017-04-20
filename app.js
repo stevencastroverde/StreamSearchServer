@@ -5,9 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-const apicache = require('apicache');
-
-
+const redis = require('redis');
+const dotenv = require('dotenv').config();
 
 
 
@@ -16,7 +15,7 @@ var tv = require('./routes/tv');
 var sources = require('./routes/sources');
 
 var app = express();
-const cache = apicache.middleware;
+const client = redis.createClient(process.env.REDIS_URL);
 
 
 
@@ -55,4 +54,7 @@ app.use(function(err, req, res, next) {
 
 });
 
-module.exports = app, client, dotenv;
+module.exports = {
+  app: app,
+  client: client
+};

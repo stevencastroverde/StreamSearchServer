@@ -15,10 +15,10 @@
     "guidebox": "^1.1.1",
     "morgan": "~1.7.0",
     "query-string": "^4.2.3",
+    "redis": "^2.7.1",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "apicache": "^0.8.4",
     "dotenv": "^4.0.0"
   }
 }
