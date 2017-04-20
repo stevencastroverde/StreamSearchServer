@@ -13,7 +13,7 @@ router.get('/free', function(req, res) {
             Guidebox.getFreeMovies()
                 .then((response) => {
                 res.json(response);
-                client.set('/movies/free', JSON.stringify(freeMovies.data), function(error){
+                client.set('/movies/free', JSON.stringify(freeMovies.results), function(error){
                     if(error) {
                         throw error;
                 } else {
