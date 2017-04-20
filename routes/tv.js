@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Guidebox = require('../requests/tvCalls.js');
-const cache = require('../app').cache;
+
 
 
 /* GET home page. */

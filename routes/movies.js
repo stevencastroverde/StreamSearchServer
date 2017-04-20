@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const Guidebox = require('../requests/movieCalls.js');
-
 const client = require('../app').client;
-
+const dotenv = require('dotenv');
 
 
 
