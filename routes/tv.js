@@ -5,25 +5,12 @@ const Guidebox = require('../requests/tvCalls.js');
 
 
 /* GET home page. */
-router.get('/free', function(req, res) {
-    client.get('/shows/free', function (error, freeTV) {
-        if (freeTV) {
-            res.json(JSON.parse(freeTV));
-        } else {
-            Guidebox.getFreeTv()
-                .then((response) => {
-                res.json(response);
-            client.set('/shows/free', JSON.stringify(freeTV.results), function(error){
-                if(error) {
-                    throw error;
-                } else {
-                    client.expire('/shows/free', 24*60*60);
-                }});
+router.get('/free', cache('24 hours'), function(req, res) {
+    Guidebox.getFreeTv()
+                .then((response) => res.json(response);
 
-        });
-        }
-    })
 });
+
 router.get('/search/:searchTerm', function(req,res){
   Guidebox.searchShows(req.params.searchTerm)
     .then((response) => res.json(response));

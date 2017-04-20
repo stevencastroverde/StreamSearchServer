@@ -5,8 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-const dotenv = require('dotenv').config();
-const redis = require('redis');
+const apicache = require('apicache');
 
 
 
@@ -17,7 +16,7 @@ var tv = require('./routes/tv');
 var sources = require('./routes/sources');
 
 var app = express();
-const client = redis.createClient(process.env.REDIS_URL);
+const cache = apicache.middleware;
 
 
 
