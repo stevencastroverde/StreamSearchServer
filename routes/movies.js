@@ -8,7 +8,9 @@ const Guidebox = require('../requests/movieCalls.js');
 /* GET users listing. */
 router.get('/free',cache('24 hours'), function(req, res) {
     Guidebox.getFreeMovies()
-                .then((response) => res.json(response);
+                .then((response) => {
+        res.json(response)
+    });
 
 });
 
