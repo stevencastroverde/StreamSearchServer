@@ -20,6 +20,7 @@ const client = redis.createClient(process.env.REDIS_URL);
 
 
 
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -57,4 +58,5 @@ app.use(function(err, req, res, next) {
 module.exports = {
   app: app,
   client: client
+
 };

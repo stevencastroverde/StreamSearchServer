@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
 const Guidebox = require('../requests/tvCalls.js');
-
+const cache = require('../app').cache;
 
 
 /* GET home page. */
 router.get('/free', function(req, res) {
     Guidebox.getFreeTv()
-                .then((response) => res.json(response));
-
+        .then((response) => {
+        res.json(response)
+    });
 });
 
 router.get('/search/:searchTerm', function(req,res){
