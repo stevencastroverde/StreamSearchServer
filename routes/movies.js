@@ -4,6 +4,7 @@ const Guidebox = require('../requests/movieCalls.js');
 
 
 
+
 /* GET users listing. */
 router.get('/free', function(req, res) {
     client.get('/movies/free', function (error, freeMovies) {

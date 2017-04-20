@@ -6,13 +6,21 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 const dotenv = require('dotenv').config();
-var client = require('redis').createClient(process.env.REDIS_URL);
+const redis = require('redis');
+
+
+
+
 
 var movies = require('./routes/movies');
 var tv = require('./routes/tv');
 var sources = require('./routes/sources');
 
 var app = express();
+const client = redis.createClient(process.env.REDIS_URL);
+
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -25,7 +33,7 @@ app.use(cors());
 
 
 app.use('/movies', movies);
-app.use('/tv', tv);
+app.use('/shows', tv);
 app.use('/sources', sources);
 
 
@@ -48,4 +56,4 @@ app.use(function(err, req, res, next) {
 
 });
 
-module.exports = app;
+module.exports = app, client, dotenv;
