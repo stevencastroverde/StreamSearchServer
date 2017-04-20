@@ -16,7 +16,7 @@ var tv = require('./routes/tv');
 var sources = require('./routes/sources');
 
 var app = express();
-var cache = apicache.middleware;
+var cache = apicache.middleware();
 
 
 
