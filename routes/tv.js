@@ -5,7 +5,7 @@ const Guidebox = require('../requests/tvCalls.js');
 
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/free', function(req, res) {
     client.get('/shows/free', function (error, freeTV) {
         if (freeTV) {
             res.json(JSON.parse(freeTV));
@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
             Guidebox.getFreeTv()
                 .then((response) => {
                 res.json(response);
-            client.set('/shows/free', JSON.stringify(freeMovies.data), function(error){
+            client.set('/shows/free', JSON.stringify(freeTV.data), function(error){
                 if(error) {
                     throw error;
                 } else {
