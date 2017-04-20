@@ -1,10 +1,28 @@
 var express = require('express');
 var router = express.Router();
 const Guidebox = require('../requests/tvCalls.js');
+
+
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  Guidebox.getFreeTv()
-    .then((response) => res.json(response));
+    client.get('/shows/free', function (error, freeTV) {
+        if (freeTV) {
+            res.json(JSON.parse(freeTV));
+        } else {
+            Guidebox.getFreeTv()
+                .then((response) => {
+                res.json(response);
+            client.set('/shows/free', JSON.stringify(freeMovies.data), function(error){
+                if(error) {
+                    throw error;
+                } else {
+                    client.expire('/shows/free', 24*60*60);
+                }});
+
+        });
+        }
+    })
 });
 router.get('/search/:searchTerm', function(req,res){
   Guidebox.searchShows(req.params.searchTerm)

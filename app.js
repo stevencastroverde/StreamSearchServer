@@ -4,7 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var cors = require('cors')
+var cors = require('cors');
+const dotenv = require('dotenv').config();
+var client = require('redis').createClient(process.env.REDIS_URL);
 
 var movies = require('./routes/movies');
 var tv = require('./routes/tv');
