@@ -16,7 +16,7 @@ var tv = require('./routes/tv');
 var sources = require('./routes/sources');
 
 var app = express();
- cache = apicache.middleware;
+var cache = apicache.middleware;
 
 
 
@@ -55,4 +55,7 @@ app.use(function(err, req, res, next) {
 
 });
 
-module.exports = app, client, dotenv;
+module.exports = {
+  app: app,
+  cache: cache
+};
