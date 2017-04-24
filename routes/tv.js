@@ -20,14 +20,14 @@ router.get('/sources', function(req, res){
   Guidebox.getSources()
       .then((response) => res.json(response));
 });
-router.get('/:id', function(req, res){
-  Guidebox.getSpecificShow(req.params.id)
-    .then((response) => res.json(response));
+router.get('/:id/:subscriptions', function(req, res){
+	var show = req.params.id
+	var subscriptions = req.params.subscriptions
+  Promise.all([Guidebox.getSpecificShow(show), Guidebox.getEpisodes(show, subscriptions), Guidebox.getShowImages(show),Guidebox.getRelatedShows(show)])
+	.then(results => res.json(results))
+	.catch(e => res.json(e));
 });
-router.get('/:id/episodes', function(req,res){
-  Guidebox.getFreeShowEpisodes(req.params.id)
-    .then((response) => res.json(response));
-});
+
 
 
 module.exports = router;
