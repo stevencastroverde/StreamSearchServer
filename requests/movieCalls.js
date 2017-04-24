@@ -15,12 +15,14 @@ module.exports = {
   getSpecificMovie: function(movieId){
     return Guidebox.movies.retrieve(movieId);
   },
-  relatedMovies: function(movieId){
+  getRelatedMovies: function(movieId){
     return Guidebox.movies.related(movieId);
   },
-
-
-
-
+	getMovieTrailer: function(movieId){
+		return Guidebox.movies.trailers(movieId, {sources: 'guidebox'});
+	},
+	getMovieImages: function(movieId){
+		return Guidebox.movies.images(movieId);
+	}
 
 };

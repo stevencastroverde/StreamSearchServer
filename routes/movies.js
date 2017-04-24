@@ -30,8 +30,14 @@ router.get('/search/:movieTitle',function(req,res){
 		.then(response => res.json(response));
 });
 router.get('/:id', function(req, res){
-  Guidebox.getSpecificMovie(req.params.id)
-    .then((response) => res.json(response));
+	var movie = req.params.id;
+	Promise.all([Guidebox.getSpecificMovie(movie),Guidebox.getMovieImages(movie), Guidebox.getRelatedMovies(movie)])
+		.then(results => res.json(results));
+
+
+
+  // Guidebox.getSpecificMovie(req.params.id)
+  //   .then((response) => res.json(response));
 });
 
 

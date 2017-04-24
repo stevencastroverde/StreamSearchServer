@@ -14,12 +14,15 @@ module.exports = {
     return Guidebox.shows.retrieve(showId);
   },
   getFreeShowEpisodes: function(showId){
-    return Guidebox.shows.episodes(showId, {sources:'free', include_links:true});
+    return Guidebox.shows.episodes(showId, {sources:'free', include_links:true, platform: 'web'});
   },
   getEpisodes: function(showId, subscriptions){
-    return Guidebox.shows.episodes(showId, {sources: subscriptions, include_links: true});
+    return Guidebox.shows.episodes(showId, {sources: subscriptions, include_links: true, platform:'web'});
   },
-  getSources: function(){
-    return Guidebox.sources.list({type:'subscription'});
-  }
+  getShowImages: function(showId){
+		return Guidebox.shows.images(showId, {filter: 'backgrounds'});
+	},
+	getRelatedShows: function(showId){
+		return Guidebox.shows.related(showId)
+	}
 };
