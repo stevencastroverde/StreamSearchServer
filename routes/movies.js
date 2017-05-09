@@ -10,15 +10,13 @@ const dotenv = require('dotenv');
 /* GET users listing. */
 router.get('/free', function(req, res) {
     client.get('/movies/free', function (error, freeMovies) {
-        if(freeMovies){
-            res.json(JSON.parse(freeMovies));
-        } else {
+        // if(freeMovies){
+        //     res.json(JSON.parse(freeMovies));
+        // } else {
             Guidebox.getFreeMovies()
                 .then((response) =>{
                 res.json(response);
-                client.set('/movies/free', JSON.stringify(response.results), function (error) {
-                    if(error){throw error};
-                })
+                
             })
         }
 
