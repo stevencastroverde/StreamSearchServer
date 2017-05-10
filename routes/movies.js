@@ -9,18 +9,17 @@ const dotenv = require('dotenv');
 
 /* GET users listing. */
 router.get('/free', function(req, res) {
-    client.get('/movies/free', function (error, freeMovies) {
+    // client.get('/movies/free', function (error, freeMovies) {
         // if(freeMovies){
         //     res.json(JSON.parse(freeMovies));
         // } else {
             Guidebox.getFreeMovies()
                 .then((response) =>{
                 res.json(response);
-                
-            })
-        }
 
-    })
+            })
+        // });
+
 });
 
 router.get('/search/:movieTitle',function(req,res){
