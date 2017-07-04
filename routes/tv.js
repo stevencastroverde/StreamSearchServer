@@ -23,7 +23,7 @@ router.get('/sources', function(req, res){
 router.get('/:id/:subscriptions', function(req, res){
 	var show = req.params.id
 	var subscriptions = req.params.subscriptions
-  Promise.all([Guidebox.getSpecificShow(show),Guidebox.getAvailableContent(show), Guidebox.getEpisodes(show, subscriptions),Guidebox.getRelatedShows(show)])
+  Promise.all([Guidebox.getSpecificShow(show), Guidebox.getEpisodes(show, subscriptions),Guidebox.getRelatedShows(show)])
 	.then(results => res.json(results))
 	.catch(e => res.json(e));
 });

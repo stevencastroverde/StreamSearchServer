@@ -17,7 +17,7 @@ module.exports = {
     return Guidebox.shows.episodes(showId, {sources:'free', include_links:true, platform: 'web'});
   },
   getEpisodes: function(showId, subscriptions){
-    return Guidebox.shows.episodes(showId, {sources: subscriptions, include_links: true, platform:'web', limit: 500});
+    return Guidebox.shows.episodes(showId, {sources: subscriptions, include_links: true, platform:'web', limit: 250});
   },
   getShowImages: function(showId){
 		return Guidebox.shows.images(showId, {filter: 'backgrounds'});
