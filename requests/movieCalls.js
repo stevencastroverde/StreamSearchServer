@@ -19,7 +19,7 @@ module.exports = {
     return Guidebox.movies.related(movieId);
   },
 	getMovieTrailer: function(movieId){
-		return Guidebox.movies.trailers(movieId, {sources: 'guidebox'});
+		return Guidebox.movies.trailers(movieId, {sources: 'youtube'});
 	},
 	getMovieImages: function(movieId){
 		return Guidebox.movies.images(movieId);

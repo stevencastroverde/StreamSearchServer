@@ -17,12 +17,15 @@ module.exports = {
     return Guidebox.shows.episodes(showId, {sources:'free', include_links:true, platform: 'web'});
   },
   getEpisodes: function(showId, subscriptions){
-    return Guidebox.shows.episodes(showId, {sources: subscriptions, include_links: true, platform:'web'});
+    return Guidebox.shows.episodes(showId, {sources: subscriptions, include_links: true, platform:'web', limit: 500});
   },
   getShowImages: function(showId){
 		return Guidebox.shows.images(showId, {filter: 'backgrounds'});
 	},
 	getRelatedShows: function(showId){
 		return Guidebox.shows.related(showId)
-	}
+	},
+    getAvailableContent: function(showId) {
+	    return Guidebox.shows.availableContent(showId);
+    }
 };

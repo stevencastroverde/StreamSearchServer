@@ -28,7 +28,7 @@ router.get('/search/:movieTitle',function(req,res){
 });
 router.get('/:id', function(req, res){
 	var movie = req.params.id;
-	Promise.all([Guidebox.getSpecificMovie(movie),Guidebox.getMovieImages(movie), Guidebox.getRelatedMovies(movie)])
+	Promise.all([Guidebox.getSpecificMovie(movie),Guidebox.getMovieTrailer(movie), Guidebox.getRelatedMovies(movie)])
 		.then(results => res.json(results));
 
 
